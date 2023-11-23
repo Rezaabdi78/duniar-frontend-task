@@ -8,16 +8,26 @@ export const NavbarContainer: React.FC<{ children: React.ReactNode }> = ({
 		<Flex
 			as="nav"
 			align="center"
-			justify="space-between"
+			justify="center"
 			wrap="wrap"
 			w="100%"
 			mb={8}
-			p={8}
-			bg={["blue.500", "blue.500", "transparent", "transparent"]}
+			px={8}
+			py={4}
+			bg={["blue.500", "blue.500", "blue.50", "blue.50"]}
 			color={["white", "white", "blue.700", "blue.700"]}
+			boxShadow={"md"}
 			{...props}
 		>
-			{children}
+			<Flex
+				align="center"
+				justify="space-between"
+				wrap="wrap"
+				w="100%"
+				maxW={"1200px"}
+			>
+				{children}
+			</Flex>
 		</Flex>
 	);
 };

@@ -11,7 +11,8 @@ export const Header: React.FC<{}> = ({ ...props }) => {
 	return (
 		<NavbarContainer {...props}>
 			<Logo
-				w="100px"
+				maxW={32}
+				w="full"
 				color={["white", "white", "blue.500", "blue.500"]}
 			/>
 			<MenuToggle isOpen={isOpen} toggle={handleToggle} />

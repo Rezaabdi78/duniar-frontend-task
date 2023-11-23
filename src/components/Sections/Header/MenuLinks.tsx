@@ -1,4 +1,4 @@
-import { Box, BoxProps, Stack } from "@chakra-ui/react";
+import { Box, BoxProps, Button, Stack, Text } from "@chakra-ui/react";
 import Link from "next/link";
 
 interface MenuItemProps extends BoxProps {
@@ -32,11 +32,16 @@ export const MenuLinks: React.FC<{ isOpen: boolean }> = ({ isOpen }) => {
 				align="center"
 				justify={["center", "space-between", "flex-end", "flex-end"]}
 				direction={["column", "row", "row", "row"]}
-				pt={[4, 4, 0, 0]}
+				mt={[8, 8, 0, 0]}
 			>
-				<MenuItem to="/">Home</MenuItem>
-				<MenuItem to="/how">How It Works</MenuItem>
-				...
+				<MenuItem to="/">
+					<Button>Home</Button>
+				</MenuItem>
+				<MenuItem to="/how">
+					<Button colorScheme="gray" variant="ghost">
+						How It Works
+					</Button>
+				</MenuItem>
 			</Stack>
 		</Box>
 	);

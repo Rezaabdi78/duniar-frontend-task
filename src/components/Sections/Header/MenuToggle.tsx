@@ -7,9 +7,20 @@ export const MenuToggle = (props: {
 }) => {
 	return (
 		<IconButton
+			display={{ base: "block", md: "none" }}
 			aria-label="menu-toggle-btn"
 			onClick={props.toggle}
-			icon={props.isOpen ? <CloseIcon /> : <HamburgerIcon />}
+			variant={"outline"}
+			color={"white"}
+			colorScheme="blue"
+			size="lg"
+			icon={
+				props.isOpen ? (
+					<CloseIcon boxSize={5} />
+				) : (
+					<HamburgerIcon boxSize={5} />
+				)
+			}
 		/>
 	);
 };
