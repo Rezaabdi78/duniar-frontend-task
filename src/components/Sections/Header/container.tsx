@@ -1,4 +1,4 @@
-import { Flex } from "@chakra-ui/react";
+import { Flex, useColorModeValue } from "@chakra-ui/react";
 
 export const NavbarContainer: React.FC<{ children: React.ReactNode }> = ({
 	children,
@@ -14,8 +14,10 @@ export const NavbarContainer: React.FC<{ children: React.ReactNode }> = ({
 			mb={8}
 			px={8}
 			py={4}
-			bg={["blue.500", "blue.500", "blue.50", "blue.50"]}
-			color={["white", "white", "blue.700", "blue.700"]}
+			bg={useColorModeValue(
+				["blue.500", "blue.500", "blue.100", "blue.100"],
+				["blue.500", "blue.500", "blue.900", "blue.900"]
+			)}
 			boxShadow={"md"}
 			{...props}
 		>
