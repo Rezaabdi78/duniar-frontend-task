@@ -1,3 +1,30 @@
+import { ITask } from "./interfaces";
+
+export const getStatusColor = (status: ITask["status"]) => {
+	let color = "gray";
+	switch (status) {
+		case "blocked":
+			color = "orange";
+			break;
+		case "inProgress":
+			color = "teal";
+			break;
+		case "done":
+			color = "blue";
+			break;
+		case "deployed":
+			color = "green";
+			break;
+		case "inQA":
+			color = "purple";
+			break;
+		case "todo":
+		default:
+			break;
+	}
+	return color;
+};
+
 export const findChanges = (
 	original: Partial<Omit<ITask, "history" | "id">>,
 	updated: Partial<Omit<ITask, "history" | "id">>
