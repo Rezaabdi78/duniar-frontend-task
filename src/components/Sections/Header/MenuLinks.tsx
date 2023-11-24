@@ -38,7 +38,7 @@ export const MenuLinks: React.FC<{ isOpen: boolean }> = ({ isOpen }) => {
 					<Button>Home</Button>
 				</MenuItem>
 				<MenuItem to="/how">
-					<Button colorScheme="gray" variant="ghost">
+					<Button colorScheme="gray" variant="ghost" isDisabled>
 						How It Works
 					</Button>
 				</MenuItem>

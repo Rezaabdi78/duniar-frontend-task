@@ -1,19 +1,15 @@
 import { useTaskContext } from "@/utils/context";
-import { findChanges, getStatusColor } from "@/utils/functions";
 import { ITask } from "@/utils/interfaces";
-import { AddIcon, EditIcon, RepeatIcon } from "@chakra-ui/icons";
+import { AddIcon } from "@chakra-ui/icons";
 import {
 	Button,
 	Card,
 	CardBody,
 	FormControl,
 	FormLabel,
-	HStack,
 	Heading,
 	Icon,
-	IconButton,
 	Input,
-	LightMode,
 	Modal,
 	ModalBody,
 	ModalCloseButton,
@@ -38,7 +34,7 @@ export const AddTaskModal = () => {
 		position: "bottom-left",
 	});
 	const { isOpen, onClose, onOpen } = useDisclosure();
-	const { setState } = useTaskContext();
+	const { state, setState } = useTaskContext();
 	const handleSubmitForm = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		setState((c) => {
@@ -68,7 +64,7 @@ export const AddTaskModal = () => {
 		});
 	};
 	const [data, setData] = useState<Omit<ITask, "history">>({
-		id: "-1",
+		id: (state.length + 1).toString(),
 		desc: "",
 		status: "todo",
 		title: "",
@@ -77,7 +73,7 @@ export const AddTaskModal = () => {
 	useEffect(() => {
 		if (isOpen) {
 			setData({
-				id: "-1",
+				id: (state.length + 1).toString(),
 				desc: "",
 				status: "todo",
 				title: "",
