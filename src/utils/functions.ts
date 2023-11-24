@@ -1,6 +1,6 @@
 import { ITask } from "./interfaces";
 
-export const getStatusColor = (status: ITask["status"]) => {
+export const getStatusColor = (status: ITask["status"] | undefined) => {
 	let color = "gray";
 	switch (status) {
 		case "blocked":
@@ -45,4 +45,18 @@ export const findChanges = (
 	});
 
 	return { newValues, prevValues };
+};
+
+export const formatDate = (date: Date) => {
+	const options: Intl.DateTimeFormatOptions = {
+		year: "numeric",
+		month: "short",
+		day: "2-digit",
+		hour: "2-digit",
+		minute: "2-digit",
+		second: "2-digit",
+		hour12: false,
+	};
+
+	return new Intl.DateTimeFormat("en-US", options).format(date);
 };

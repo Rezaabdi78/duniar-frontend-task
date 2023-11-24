@@ -1,9 +1,5 @@
 import { ITask } from "@/utils/interfaces";
-import { DeleteIcon, EditIcon, ViewIcon } from "@chakra-ui/icons";
 import {
-	AlertDialog,
-	AlertDialogOverlay,
-	Button,
 	ButtonGroup,
 	Card,
 	CardBody,
@@ -13,22 +9,18 @@ import {
 	Flex,
 	HStack,
 	Heading,
-	LightMode,
 	Tag,
 	Text,
 	VStack,
 	useColorModeValue,
-	useDisclosure,
 } from "@chakra-ui/react";
 import React from "react";
-import { useState } from "react";
 import { DeleteAlertDialog } from "./deleteAlertDialog";
 import { getStatusColor } from "@/utils/functions";
 import { EditTaskModal } from "./editTaskModal";
+import { TaskDetailsModal } from "./viewTaskDetails";
 
 export const TodoItem = (props: { data: ITask }) => {
-	const [DetailModalOpen, setDetailModalOpen] = useState(false);
-	const [editModalOpen, setEditModalOpen] = useState(false);
 	return (
 		<Card>
 			<CardHeader>
@@ -69,15 +61,7 @@ export const TodoItem = (props: { data: ITask }) => {
 					justifyContent={"space-between"}
 					w="full"
 				>
-					<Button
-						leftIcon={<ViewIcon />}
-						colorScheme="blue"
-						onClick={() => {
-							setDetailModalOpen(true);
-						}}
-					>
-						View
-					</Button>
+					<TaskDetailsModal id={props.data.id} />
 					<EditTaskModal id={props.data.id} />
 					<DeleteAlertDialog id={props.data.id} />
 				</ButtonGroup>
