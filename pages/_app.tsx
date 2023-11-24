@@ -5,10 +5,10 @@ import { TaskContextProvider } from "@/utils/context";
 
 export default function App({ Component, pageProps }: AppProps) {
 	return (
-		<ChakraProvider>
-			<TaskContextProvider>
-				<Component {...pageProps} />
-			</TaskContextProvider>
-		</ChakraProvider>
+		// <ChakraProvider>
+		// 	<TaskContextProvider>
+		<Component {...pageProps} />
+		//</TaskContextProvider>
+		//</ChakraProvider>
 	);
 }

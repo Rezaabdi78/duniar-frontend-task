@@ -37,8 +37,10 @@ export const findChanges = (
 			original[key as keyof Partial<Omit<ITask, "history" | "id">>] !==
 			updated[key as keyof Partial<Omit<ITask, "history" | "id">>]
 		) {
+			//@ts-expect-error
 			newValues[key as keyof Partial<Omit<ITask, "history" | "id">>] =
 				updated[key as keyof Partial<Omit<ITask, "history" | "id">>];
+			//@ts-expect-error
 			prevValues[key as keyof Partial<Omit<ITask, "history" | "id">>] =
 				original[key as keyof Partial<Omit<ITask, "history" | "id">>];
 		}

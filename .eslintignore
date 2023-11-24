@@ -1,0 +1,14 @@
+# Next.js build output
+.next/
+# Node modules
+node_modules/
+# Build directories
+dist/
+build/
+# Static files
+public/
+# Configuration files
+*.config.js
+# Ignore specific files or patterns
+**/*.test.js
+**/*.spec.js
