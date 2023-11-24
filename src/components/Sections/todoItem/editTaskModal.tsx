@@ -1,5 +1,5 @@
 import { useTaskContext } from "@/utils/context";
-import { getStatusColor } from "@/utils/functions";
+import { findChanges, getStatusColor } from "@/utils/functions";
 import { ITask } from "@/utils/interfaces";
 import { EditIcon, RepeatIcon } from "@chakra-ui/icons";
 import {
@@ -39,15 +39,19 @@ export const EditTaskModal = (props: { id: string }) => {
 			const updatedTasks = [...c];
 			const ind = updatedTasks.findIndex((v) => v.id === props.id);
 			if (ind !== -1) {
+				const changes = findChanges(updatedTasks[ind], data);
 				updatedTasks[ind] = {
 					...updatedTasks[ind],
 					...data,
+					history: [
+						...updatedTasks[ind].history,
+						{
+							time: new Date().toString(),
+							new: changes.newValues,
+							prev: changes.prevValues,
+						},
+					],
 				};
-				updatedTasks[ind].history.push({
-					time: new Date().toString(),
-					new: data,
-					prev: updatedTasks[ind],
-				});
 				toast({
 					description: "Task was updated successfully!",
 					status: "success",
