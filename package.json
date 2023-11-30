@@ -7,7 +7,8 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "eslint --ignore-path .gitignore --ignore-path .eslintignore .",
-		"format": "prettier --write ."
+		"format": "prettier --write .",
+		"export": "next build && next export"
 	},
 	"dependencies": {
 		"@chakra-ui/icons": "^2.1.1",
